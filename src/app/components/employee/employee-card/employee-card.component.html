@@ -1,0 +1,29 @@
+<div class="employee-card-container">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ employee.lastName }}</mat-card-title>
+      <mat-card-subtitle>{{ employee.firstName }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ imgUrl }}"
+      alt="Profile Image"
+      (error)="img.src = emptyImg"
+      #img
+    />
+    <mat-card-content>
+      <a href="href='mailto:{{ employee.email }}'" class="employee-email">{{
+        employee.email
+      }}</a>
+      <h3>{{ employee.role }}</h3>
+      <p>{{ employee.department.name }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="openEditDialog(employee)">
+        <svg data-feather="edit-2"></svg>
+      </button>
+      <button mat-button (click)="openDeleteDialog(employee)"><svg data-feather="trash-2"></svg></button>
+    </mat-card-actions>
+  </mat-card>
+</div>

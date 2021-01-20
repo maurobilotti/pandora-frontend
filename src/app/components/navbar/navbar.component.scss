@@ -1,0 +1,85 @@
+.mat-toolbar {
+  background-color: var(--dark-blue);
+}
+
+.mat-sidenav-container {
+  min-height: calc(100vh - 64px) !important;
+}
+
+@media (max-width: 480px) {
+  .mat-sidenav-container {
+    min-height: 100vh !important;
+  }
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  white-space: normal;
+  font-family: "Fira Code", monospace;
+  transition: var(--transition);
+  span {
+    font-size: var(--fz-xxl);
+    font-family: var(--font-mono);
+  }
+
+  svg {
+    height: var(--fz-icons);
+    width: var(--fz-icons);
+  }
+
+  &:hover {
+    color: var(--light-grey);
+  }
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-drawer-content {
+  overflow: initial;
+}
+
+.mat-drawer {
+  background-color: var(--light-grey) !important;
+}
+
+// this is the page container
+.mat-sidenav-content {
+  text-align: center;
+  padding: 30px 150px;
+
+  @media (max-width: 1080px) {
+    padding: 25px 150px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 25px;
+    text-align: left;
+  }
+}
+
+.mat-icon-button {
+  color: var(--slate);
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  @media (max-width: 480px) {
+    padding: 0px;
+  }
+}
+
+header {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.nav-number {
+  font-size: var(--fz-sm);
+}

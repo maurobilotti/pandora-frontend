@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --light-grey: #eae7dc;
+  --lighter-grey: 	#F8F8F8;
+  --dark-grey: 	#606060;
+  --light-brown: #d8c3a5;
+  --dark-blue: #0C3056;
+  --dark-red: #de0f20;
+  --light-red: #e98074;
+  --red: #e85a4f;
+  --white: #fff;
+  --light-yellow: #fffee0;
+  --green: #32CD32;
+  --dark-orange: darkorange;
+  --transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --font-sans: "Calibre", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --font-main: "Roboto", sans-serif;
+  --table-header-size: 14px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+table {
+  width: 100%;
+
+  tr.mat-header-row {
+    background-color: var(--light-grey);
+  }
+
+  th.mat-header-cell{
+    font-size: var(--table-header-size);
+  }
+
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    text-align: left;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

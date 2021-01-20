@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content>
+    <p>Do you want to delete the <strong>{{data.type}} - {{data.description}}</strong>?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="deny()">No</button>
+    <button mat-button (click)="confirm()" cdkFocusInitial>Yes</button>
+</div>

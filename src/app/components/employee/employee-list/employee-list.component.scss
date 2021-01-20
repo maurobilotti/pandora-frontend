@@ -1,0 +1,36 @@
+.employee-list-container {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+
+  .top-elements {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 15px;
+    background-color: transparent;
+
+    .mat-form-field {
+      margin-left: 20px;
+      min-width: 200px;
+    }
+
+    button {
+      height: 45px;
+      width: 45px;
+      margin-top: 10px;
+      color: var(--dark-blue);
+      svg {
+        height: 35px;
+        width: 35px;
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--green);
+        transition: var(--transition);
+      }
+    }
+  }
+
+  .content {
+    padding: 16px;
+  }
+}

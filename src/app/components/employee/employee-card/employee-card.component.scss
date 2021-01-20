@@ -1,0 +1,66 @@
+.employee-card-container {
+  .mat-card {
+    width: 200px;
+    color: var(--dark-grey);
+    transition: var(--transition);
+    &:hover,
+    &:focus {
+      background-color: var(--light-yellow);
+      transition: var(--transition);
+    }
+  }
+
+  .employee-email {
+    font-family: var(--font-mono);
+    color: var(--red);
+    text-decoration: none;
+    &:hover {
+      color: var(--light-red);
+    }
+  }
+
+  .mat-card-image {
+    transition: var(--transition);
+    filter: grayscale(100%) contrast(1);
+    &:hover {
+      filter: none;
+      transition: var(--transition);
+    }
+  }
+
+  .mat-card-content {
+    h3 {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+
+  .mat-card {
+    background-color: var(--white);
+  }
+
+
+  .mat-card-actions{
+    border-top: 1px solid var(--light-grey);
+
+    .feather-edit-2{
+      &:hover{
+        color: var(--dark-orange);
+      }
+    }
+
+    .feather-trash-2{
+      &:hover{
+        color: var(--dark-red);
+      }
+    }
+  }
+
+  .mat-card-title {
+    color: var(--dark-blue);
+  }
+
+  .mat-card-subtitle {
+    color: var(--dark-red);
+  }
+}
