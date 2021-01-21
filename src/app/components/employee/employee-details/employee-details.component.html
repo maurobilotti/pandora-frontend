@@ -1,1 +1,82 @@
-<p>employee-details works!</p>
+<section class="employee-details-container">
+  <div class="employee-details-wrapper">
+    <h2>Employee Details</h2>
+    <mat-divider></mat-divider>
+    <h4>Personal Data</h4>
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput [(ngModel)]="employee.firstName" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput [(ngModel)]="employee.lastName"/>
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            [formControl]="email"
+            [(ngModel)]="employee.email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput type="number" [(ngModel)]="employee.phoneNumber"/>
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h4>Company Data</h4>
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Salary</mat-label>
+          <input matInput type="number" [(ngModel)]="employee.salary" class="example-right-align" />
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Role</mat-label>
+          <input matInput [(ngModel)]="employee.role"/>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="selectedDeparment" name="department">
+          <mat-option
+            *ngFor="let department of departments"
+            [value]="department.id"
+          >
+            {{ department.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="actions" fxLayout fxFill fxLayoutAlign="space-around center">
+      <button
+        mat-fab
+        color="primary"
+        aria-label="Example icon button with a delete icon"
+      >
+        <mat-icon>save</mat-icon>
+      </button>
+      <button
+        mat-fab
+        color="warn"
+        aria-label="Example icon button with a delete icon"
+        (click)="closeDialog()"
+      >
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

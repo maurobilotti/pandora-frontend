@@ -8,7 +8,20 @@
       background-color: var(--light-yellow);
       transition: var(--transition);
     }
+
+    .mat-card-header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mat-card-avatar{
+      height: unset;
+      width: unset;
+    }
   }
+
+
 
   .employee-email {
     font-family: var(--font-mono);
@@ -39,18 +52,17 @@
     background-color: var(--white);
   }
 
-
-  .mat-card-actions{
+  .mat-card-actions {
     border-top: 1px solid var(--light-grey);
 
-    .feather-edit-2{
-      &:hover{
+    .feather-edit-2 {
+      &:hover {
         color: var(--dark-orange);
       }
     }
 
-    .feather-trash-2{
-      &:hover{
+    .feather-trash-2 {
+      &:hover {
         color: var(--dark-red);
       }
     }

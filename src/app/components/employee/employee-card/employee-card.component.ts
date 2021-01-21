@@ -7,6 +7,7 @@ import { EmployeeDetailsComponent } from '../employee-details/employee-details.c
 import { ConfirmationDialogComponent } from '../../shared/confirmation-dialog/confirmation-dialog.component';
 import { EntityType } from 'src/app/models/enums/entity-type.enum';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { EntityAction } from 'src/app/models/enums/entity-action.enum';
 
 @Component({
   selector: 'app-employee-card',
@@ -16,6 +17,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class EmployeeCardComponent implements OnInit {
   @Input() employee: Employee;
   @Output() deleteStatusChange = new EventEmitter<Employee>();
+  @Output() editStatusChange = new EventEmitter<Employee>();
 
   imgUrl: any = '';
   emptyImg = '../../../../assets/images/empty-person.png';
@@ -29,7 +31,10 @@ export class EmployeeCardComponent implements OnInit {
   openEditDialog(employee): void {
     const editDialogRef = this.editDialog.open(EmployeeDetailsComponent, {
       width: '250px',
-      data: employee,
+      data: {
+        employee : employee,
+        action: EntityAction.Edit
+      },
     });
 
     editDialogRef.afterClosed().subscribe((result) => {

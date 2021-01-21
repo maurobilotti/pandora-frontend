@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { EntityType } from 'src/app/models/enums/entity-type.enum';
+
 
 @Component({
   selector: 'app-confirmation-dialog',

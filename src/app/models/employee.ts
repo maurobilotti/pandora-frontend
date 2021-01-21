@@ -7,7 +7,6 @@ export interface Employee {
   email: string;
   phoneNumber: string;
   salary: number;
-  quantity: number;
   role: string;
   department: Department
 }

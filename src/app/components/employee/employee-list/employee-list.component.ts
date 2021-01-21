@@ -8,9 +8,7 @@ import { flyingOutAnimation } from 'src/app/modules/animations/angular-animation
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss'],
-  animations: [
-    flyingOutAnimation
-  ],
+  animations: [flyingOutAnimation],
 })
 export class EmployeeListComponent implements OnInit {
   constructor(public employeeService: EmployeeService) {}
@@ -34,6 +32,24 @@ export class EmployeeListComponent implements OnInit {
         this.employees.findIndex((x) => x == employee),
         1
       );
+    }
+  }
+
+  editEmployeeCallback(employee: Employee) {
+    console.log(employee);
+    if (this.employees.find((x) => x == employee)) {
+      var oldEmployee = this.employees.find((x) => x == employee);
+      if (oldEmployee) {
+        oldEmployee.firstName = employee.firstName;
+        oldEmployee.lastName = employee.lastName;
+        oldEmployee.email = employee.email;
+        oldEmployee.phoneNumber = employee.phoneNumber;
+        oldEmployee.role = employee.role;
+        oldEmployee.salary = employee.salary;
+        oldEmployee.department.id = employee.department.id;
+        oldEmployee.department.name = employee.department.name;
+        oldEmployee.department.city = employee.department.city;
+      }
     }
   }
 

@@ -15,6 +15,7 @@
     button {
       height: 45px;
       width: 45px;
+      background-color: unset;
       margin-top: 10px;
       color: var(--dark-blue);
       svg {
@@ -24,10 +25,13 @@
 
       &:hover,
       &:focus {
+        background-color: unset;
         color: var(--green);
         transition: var(--transition);
       }
     }
+
+
   }
 
   .content {
