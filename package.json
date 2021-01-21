@@ -24,6 +24,7 @@
     "@angular/router": "~11.1.0-next.2",
     "feather-icons": "^4.28.0",
     "ng2-search-filter": "^0.5.1",
+    "ngx-mask": "^11.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

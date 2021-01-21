@@ -13,6 +13,7 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
 import { EmployeeDetailsComponent } from './components/employee/employee-details/employee-details.component';
 import { ConfirmationDialogComponent } from './components/shared/confirmation-dialog/confirmation-dialog.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AngularMaterialModule,
     RoutingModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

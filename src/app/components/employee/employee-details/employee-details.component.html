@@ -28,7 +28,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Phone</mat-label>
-          <input matInput type="number" [(ngModel)]="employee.phoneNumber"/>
+          <input matInput type="text" mask='(000) 000-0000' [(ngModel)]="employee.phoneNumber"/>
         </mat-form-field>
       </div>
     </div>
@@ -51,11 +51,10 @@
     <div class="row">
       <mat-form-field appearance="fill">
         <mat-label>Department</mat-label>
-        <mat-select [(ngModel)]="selectedDeparment" name="department">
+        <mat-select [(ngModel)]="this.employee.department.id" name="department">
           <mat-option
             *ngFor="let department of departments"
-            [value]="department.id"
-          >
+            [value]="department.id"          >
             {{ department.name }}
           </mat-option>
         </mat-select>
@@ -65,15 +64,14 @@
       <button
         mat-fab
         color="primary"
-        aria-label="Example icon button with a delete icon"
+        (click)="save()"
       >
         <mat-icon>save</mat-icon>
       </button>
       <button
         mat-fab
         color="warn"
-        aria-label="Example icon button with a delete icon"
-        (click)="closeDialog()"
+        (click)="close()"
       >
         <mat-icon>cancel</mat-icon>
       </button>

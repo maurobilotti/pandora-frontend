@@ -5,6 +5,7 @@ import { DepartmentService } from 'src/app/services/department.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Employee } from 'src/app/models/employee';
 import { EntityAction } from 'src/app/models/enums/entity-action.enum';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -19,19 +20,20 @@ export class EmployeeDetailsComponent implements OnInit {
 
   constructor(
     private departmentService: DepartmentService,
+    private employeeService: EmployeeService,
     public dialog: MatDialogRef<EmployeeDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
 
-  selectedDeparment: number;
+  // selectedDeparment: number;
 
   ngOnInit(): void {
     this.employee = this.data.employee;
     this.getDepartments();
 
-    if (this.data.action == EntityAction.Edit) {
+    if (this.data.action == EntityAction.New) {
       console.log(this.data.action);
-      this.selectedDeparment = this.employee.department.id;
+      this.employee.department = { id: this.departments[0].id } as Department;
     }
   }
 
@@ -43,8 +45,17 @@ export class EmployeeDetailsComponent implements OnInit {
       });
   }
 
-  closeDialog() {
+  close() {
     this.dialog.close();
+  }
+
+  save() {
+    this.employee.department = this.departments.find(x => x.id == this.employee.department.id);
+    this.employeeService
+      .update(this.employee.id, this.employee)
+      .subscribe((newEmployee) => {
+        this.dialog.close(newEmployee);
+      });
   }
 
   getErrorMessage() {
