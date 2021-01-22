@@ -1,6 +1,8 @@
 # PandoraFrontend
 
 CRUD project for a company challenge. 
+The backend project can be found at: https://github.com/maurobilotti/pandora-backend
+
 
 Front-end Stack:
 - Angular 11
