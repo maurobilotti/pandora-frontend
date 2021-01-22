@@ -13,7 +13,11 @@ import { EmployeeCardComponent } from './components/employee/employee-card/emplo
 import { EmployeeDetailsComponent } from './components/employee/employee-details/employee-details.component';
 import { ConfirmationDialogComponent } from './components/shared/confirmation-dialog/confirmation-dialog.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { DepartmentListComponent } from './components/deparment/department-list/department-list.component';
+import { CityListComponent } from './components/city/city-list/city-list.component';
+import { DepartmentDetailsComponent } from './components/deparment/department-details/department-details.component';
+import { CityDetailsComponent } from './components/city/city-details/city-details.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     EmployeeListComponent,
     EmployeeCardComponent,
     EmployeeDetailsComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    DepartmentListComponent,
+    CityListComponent,
+    DepartmentDetailsComponent,
+    CityDetailsComponent
   ],
   imports: [
     BrowserModule,

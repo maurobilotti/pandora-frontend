@@ -1,8 +1,12 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from '../../../services/employee.service';
 import * as Feather from 'feather-icons';
 import { flyingOutAnimation } from 'src/app/modules/animations/angular-animations/angular-animations.module';
+import { MatDialog } from '@angular/material/dialog';
+import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
+import { EntityAction } from 'src/app/models/enums/entity-action.enum';
+import { Department } from 'src/app/models/department';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,7 +15,12 @@ import { flyingOutAnimation } from 'src/app/modules/animations/angular-animation
   animations: [flyingOutAnimation],
 })
 export class EmployeeListComponent implements OnInit {
-  constructor(public employeeService: EmployeeService) {}
+  @Output() newEmployeeStatusChange = new EventEmitter<Employee>();
+
+  constructor(
+    public employeeService: EmployeeService,
+    public newEmployeeDialog: MatDialog
+  ) {}
 
   employees: Employee[] = [];
   search: string = '';
@@ -35,8 +44,34 @@ export class EmployeeListComponent implements OnInit {
     }
   }
 
+  newEmployee() {
+    const editDialogRef = this.newEmployeeDialog.open(
+      EmployeeDetailsComponent,
+      {
+        data: {
+          employee: {
+            id: 0,
+            firstName: '',
+            lastName: '',
+            email: '',
+            role: '',
+            salary: 0,
+            phoneNumber: '',
+            department: {} as Department,
+          } as Employee,
+          action: EntityAction.New,
+        },
+      }
+    );
+
+    editDialogRef.afterClosed().subscribe((newEmployee: Employee) => {
+      if (newEmployee != undefined) {
+        this.employees.push(newEmployee);
+      }
+    });
+  }
+
   editEmployeeCallback(employee: Employee) {
-    console.log(employee);
     if (this.employees.find((x) => x == employee)) {
       var oldEmployee = this.employees.find((x) => x == employee);
       if (oldEmployee) {

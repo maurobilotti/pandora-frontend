@@ -9,19 +9,17 @@
       transition: var(--transition);
     }
 
-    .mat-card-header{
+    .mat-card-header {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .mat-card-avatar{
+    .mat-card-avatar {
       height: unset;
       width: unset;
     }
   }
-
-
 
   .employee-email {
     font-family: var(--font-mono);

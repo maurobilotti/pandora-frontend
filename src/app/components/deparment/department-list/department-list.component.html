@@ -1,0 +1,54 @@
+<section class="department-list-container">
+  <div class="top-elements">
+    <button mat-fab (click)="newDepartment()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. IT"
+        #input
+      />
+    </mat-form-field>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let department">{{ department.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Department</th>
+      <td mat-cell *matCellDef="let department">{{ department.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef>City</th>
+      <td mat-cell *matCellDef="let department">{{ department.city.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let department">
+        <button mat-raised-button (click)="editDepartment(department)">
+          <mat-icon class="edit-icon">edit</mat-icon>
+        </button>
+        <button mat-raised-button (click)="deleteDepartment(department)">
+          <mat-icon class="clear-icon">clear</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+</section>

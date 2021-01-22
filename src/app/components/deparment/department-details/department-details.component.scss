@@ -1,0 +1,32 @@
+.department-details-container {
+  // width: 500px;
+  .department-details-wrapper {
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+    }
+
+    .mat-form-field {
+      padding: 5px;
+    }
+
+    h4 {
+      font-family: var(--font-sans);
+      font-weight: bold;
+      padding-left: 10px;
+    }
+
+    .actions {
+      margin: 5px;
+    }
+  }
+}

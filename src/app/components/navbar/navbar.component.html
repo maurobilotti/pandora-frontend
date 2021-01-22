@@ -5,15 +5,14 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-
     <a mat-button class="siteName" routerLink="/">
       <svg data-feather="home" style="color: var(--white)"></svg>
     </a>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-md="true">
-      <a mat-button routerLink="/employees">Employees</a>
-      <a mat-button routerLink="/departments">Departments</a>
-      <a mat-button routerLink="/cities">Cities</a>
+      <a mat-button routerLink="/employee">Employees</a>
+      <a mat-button routerLink="/department">Departments</a>
+      <a mat-button routerLink="/city">Cities</a>
     </div>
   </mat-toolbar>
   <mat-sidenav-container fxFlexFill>
@@ -27,9 +26,9 @@
     >
       <div fxLayout="column">
         <div fxShow="true" fxHide.lt-md="true">
-          <a mat-button routerLink="/employees">Employees</a>
-          <a mat-button routerLink="/departments">Departments</a>
-          <a mat-button routerLink="/cities">Cities</a>
+          <a mat-button routerLink="/employee">Employees</a>
+          <a mat-button routerLink="/department">Departments</a>
+          <a mat-button routerLink="/city">Cities</a>
         </div>
       </div>
     </mat-sidenav>

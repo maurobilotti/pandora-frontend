@@ -1,0 +1,46 @@
+.department-list-container {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  /* Structure */
+  table {
+    width: 100%;
+
+    .mat-column-actions {
+      flex: none;
+      width: 20%;
+      button {
+        margin: 3px;
+        .edit-icon{
+          &:hover{
+            color: var(--dark-orange);
+          }
+        }
+
+        .clear-icon{
+          &:hover{
+            color: var(--red);
+          }
+        }
+      }
+    }
+  }
+
+  .top-elements {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 15px;
+    button {
+      background-color: var(--dark-blue);
+      &:hover,
+      &:focus {
+        background-color: var(--green);
+        transition: var(--transition);
+      }
+    }
+
+    .mat-form-field {
+      font-size: 14px;
+      width: 40%;
+      margin-left: 20px;
+    }
+  }
+}

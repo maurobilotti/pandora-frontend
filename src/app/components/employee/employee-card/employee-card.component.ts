@@ -1,4 +1,11 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  OnInit,
+  EventEmitter,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { environment } from '../../../../environments/environment';
 import * as Feather from 'feather-icons';
@@ -16,34 +23,46 @@ import { EntityAction } from 'src/app/models/enums/entity-action.enum';
 })
 export class EmployeeCardComponent implements OnInit {
   @Input() employee: Employee;
-  @Output() deleteStatusChange = new EventEmitter<Employee>();
-  @Output() editStatusChange = new EventEmitter<Employee>();
+  @Output() deleteEmployeeStatusChange = new EventEmitter<Employee>();
+  @Output() imageChange = new EventEmitter<Employee>();
 
   imgUrl: any = '';
   emptyImg = '../../../../assets/images/empty-person.png';
 
   constructor(
-    public editDialog: MatDialog,
-    public deleteDialog: MatDialog,
-    public employeeService: EmployeeService
+    public editEmployeeDialog: MatDialog,
+    public deleteEmployeeDialog: MatDialog,
+    public employeeService: EmployeeService,
+    private ref: ChangeDetectorRef
   ) {}
 
   openEditDialog(employee): void {
-    const editDialogRef = this.editDialog.open(EmployeeDetailsComponent, {
-      width: '250px',
-      data: {
-        employee : employee,
-        action: EntityAction.Edit
-      },
-    });
+    const editDialogRef = this.editEmployeeDialog.open(
+      EmployeeDetailsComponent,
+      {
+        width: '250px',
+        data: {
+          employee: employee,
+          action: EntityAction.Edit,
+        },
+      }
+    );
 
     editDialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log('edit closed');
+      this.imgUrl =
+        environment.backendUrl +
+        'StaticFiles/Images/' +
+        this.employee.id +
+        '.jpg';
+
+      this.imgUrl += '?random+=' + Math.random();
+      this.ref.detectChanges();
     });
   }
 
   openDeleteDialog(employee): void {
-    this.deleteDialog
+    this.deleteEmployeeDialog
       .open(ConfirmationDialogComponent, {
         data: {
           type: EntityType.Employee,
@@ -56,7 +75,7 @@ export class EmployeeCardComponent implements OnInit {
           this.employeeService.delete(employee.id).subscribe((result) => {
             if (result) {
               console.log('The employee was deleted.');
-              this.deleteStatusChange.emit(employee);
+              this.deleteEmployeeStatusChange.emit(employee);
             }
           });
         }
@@ -64,11 +83,13 @@ export class EmployeeCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.imgUrl =
-      environment.backendUrl +
-      'StaticFiles/Images/' +
-      this.employee.id +
-      '.jpg';
+    if (this.employee != undefined) {
+      this.imgUrl =
+        environment.backendUrl +
+        'StaticFiles/Images/' +
+        this.employee.id +
+        '.jpg';
+    }
   }
 
   ngAfterViewInit() {

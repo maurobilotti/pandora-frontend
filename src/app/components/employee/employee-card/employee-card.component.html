@@ -7,7 +7,7 @@
     </mat-card-header>
     <img
       mat-card-image
-      src="{{ imgUrl }}"
+      [src]="imgUrl"
       alt="Profile Image"
       (error)="img.src = emptyImg"
       #img

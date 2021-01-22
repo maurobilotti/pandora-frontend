@@ -8,30 +8,20 @@
     background-color: transparent;
 
     .mat-form-field {
+      font-size: 14px;
+      width: 40%;
       margin-left: 20px;
-      min-width: 200px;
     }
 
     button {
-      height: 45px;
-      width: 45px;
-      background-color: unset;
-      margin-top: 10px;
-      color: var(--dark-blue);
-      svg {
-        height: 35px;
-        width: 35px;
-      }
-
+      background-color: var(--dark-blue);
+      color: white;
       &:hover,
       &:focus {
-        background-color: unset;
-        color: var(--green);
+        background-color: var(--green);
         transition: var(--transition);
       }
     }
-
-
   }
 
   .content {

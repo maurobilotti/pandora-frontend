@@ -1,0 +1,38 @@
+<section class="department-details-container">
+  <div class="department-details-wrapper">
+    <h2>Department Details</h2>
+    <mat-divider></mat-divider>
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="department.name" />
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <mat-select
+            [(ngModel)]="this.department.city.id"
+            name="city"
+          >
+            <mat-option
+              *ngFor="let city of cities"
+              [value]="city.id"
+            >
+              {{ city.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="actions" fxLayout fxFill fxLayoutAlign="space-around center">
+        <button mat-fab color="primary" (click)="save()">
+          <mat-icon>save</mat-icon>
+        </button>
+        <button mat-fab color="warn" (click)="close()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

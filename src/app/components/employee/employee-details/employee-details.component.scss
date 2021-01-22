@@ -15,6 +15,15 @@
       flex: 1;
     }
 
+    .upload-image-container {
+      align-items: center;
+      .upload-button {
+        &:hover {
+          background-color: var(--dark-blue);
+        }
+      }
+    }
+
     .mat-form-field {
       padding: 5px;
     }
@@ -25,8 +34,24 @@
       padding-left: 10px;
     }
 
-    .actions{
+    .progress-bar-container {
+      height: 10px;
+    }
+
+    .actions {
       margin: 5px;
+
+      .save-button {
+        &:hover {
+          background-color: var(--green);
+        }
+      }
+
+      .close-button {
+        &:hover {
+          background-color: var(--dark-red);
+        }
+      }
     }
   }
 }
